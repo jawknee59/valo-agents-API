@@ -47,9 +47,32 @@ router.post('/abilities/:agentId', (req, res, next) => {
 
 // PATCH -> update an ability 
 // PATCH /abilities/:agentId/:abilityId
+router.patch('/abilities/:agentId/:abilityId', requireToken, (req, res, next) => {
+    // get and save the id's to variables
+    const agentId = req.params.agentId
+    const abilityId = req.params.abilityId
+
+    // find the agent to update their ability 
+    Agent.findById(agentId)
+        .then(handle404)
+        .then(agent => {
+            // single out the ability to be updated
+            const theAbility = agent.abilities.id(abilityId)
+            // make sure the user is the agent's owner
+            requireOwnership(req, agent)
+            // update the ability 
+            theAbility.set(req.body.ability)
+
+            // save the agent
+            return agent.save()
+        })
+        .then(() => res.sendStatus(204))
+        .catch(next)
+})
 
 // DELETE -> destroy an ability
 // DELETE /abilities/:agentId/:abilityId
+
 
 // export router
 module.exports = router
