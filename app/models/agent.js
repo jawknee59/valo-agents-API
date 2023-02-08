@@ -14,7 +14,7 @@ const agentSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
-		born: {
+		country: {
 			type: String,
 			required: true,
 		},
