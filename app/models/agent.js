@@ -1,19 +1,26 @@
 const mongoose = require('mongoose')
 
-const exampleSchema = new mongoose.Schema(
+const agentSchema = new mongoose.Schema(
 	{
-		title: {
+		name: {
 			type: String,
 			required: true,
 		},
-		text: {
+		agentNumber: {
+			type: Number,
+			required: true,
+		},
+		role: {
+			type: String,
+			required: true,
+		},
+		born: {
 			type: String,
 			required: true,
 		},
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
-			required: true,
 		},
 	},
 	{
@@ -21,4 +28,4 @@ const exampleSchema = new mongoose.Schema(
 	}
 )
 
-module.exports = mongoose.model('Example', exampleSchema)
+module.exports = mongoose.model('Agent', agentSchema)

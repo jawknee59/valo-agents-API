@@ -10,13 +10,13 @@ This application uses token authentication instead of sessions.
 
 ###### Routes Table
 
-| Verb   | URI Pattern            | Controller#Action |
-|--------|------------------------|-------------------|
-| GET    | `/agents`                | `pets#index`      |
-| GET    | `/agents/:id`            | `pets#show`       |
-| POST   | `/agents/`               | `pets#create`     |
-| PATCH  | `/agents/:id`            | `pets#update`     |
-| DELETE | `/agents/:id`            | `pets#delete`     |
+| Verb   | URI Pattern              | Controller#Action   |
+|--------|--------------------------|---------------------|
+| GET    | `/agents`                | `agents#index`      |
+| GET    | `/agents/:id`            | `agents#show`       |
+| POST   | `/agents/`               | `agents#create`     |
+| PATCH  | `/agents/:id`            | `agents#update`     |
+| DELETE | `/agents/:id`            | `agents#delete`     |
 
 ### Users
 
