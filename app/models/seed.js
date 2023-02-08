@@ -3,15 +3,15 @@ const Agent = require('./agent')
 const db = require('../../config/db')
 
 const startAgents = [
-    { name: 'Brimstone', agentNumber: 1, role: 'Controller', country: 'U.S.A.' },
-    { name: 'Viper', agentNumber: 2, role: 'Controller', country: 'U.S.A' },
-    { name: 'Omen', agentNumber: 3, role: 'Controller', country: 'Unknown' },
-    { name: 'Killjoy', agentNumber: 4, role: 'Sentinel', country: 'Germany' },
-    { name: 'Cypher', agentNumber: 5, role: 'Sentinel', country: 'Morocco' },
-    { name: 'Sova', agentNumber: 6, role: 'Initator', country: 'Russia' },
-    { name: 'Sage', agentNumber: 7, role: 'Sentinel', country: 'China' },
-    { name: 'Phoenix', agentNumber: 9, role: 'Duelist', country: 'U.K.' },
-    { name: 'Jett', agentNumber: 10, role: 'Duelist', country: 'South Korea' }
+    { name: 'Brimstone', agentNumber: 1, role: 'controller', country: 'U.S.A.' },
+    { name: 'Viper', agentNumber: 2, role: 'controller', country: 'U.S.A' },
+    { name: 'Omen', agentNumber: 3, role: 'controller', country: 'Unknown' },
+    { name: 'Killjoy', agentNumber: 4, role: 'sentinel', country: 'Germany' },
+    { name: 'Cypher', agentNumber: 5, role: 'sentinel', country: 'Morocco' },
+    { name: 'Sova', agentNumber: 6, role: 'initiator', country: 'Russia' },
+    { name: 'Sage', agentNumber: 7, role: 'sentinel', country: 'China' },
+    { name: 'Phoenix', agentNumber: 9, role: 'duelist', country: 'U.K.' },
+    { name: 'Jett', agentNumber: 10, role: 'duelist', country: 'South Korea' }
 ]
 
 mongoose.connect(db, {

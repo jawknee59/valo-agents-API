@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const abilitySchema = require('./ability')
 
 const agentSchema = new mongoose.Schema(
 	{
@@ -12,12 +13,13 @@ const agentSchema = new mongoose.Schema(
 		},
 		role: {
 			type: String,
-			required: true,
+			enum: ['controller', 'duelist', 'initiator', 'sentinel']
 		},
 		country: {
 			type: String,
 			required: true,
 		},
+		abilities: [abilitySchema],
 		owner: {
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'User',
