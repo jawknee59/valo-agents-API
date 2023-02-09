@@ -29,3 +29,12 @@ This application uses token authentication instead of sessions.
 | PATCH  | `/change-password/`    | `users#changepw`  |
 | DELETE | `/sign-out/`           | `users#signout`   |
 
+### Abilities
+
+###### Routes Table
+
+| Verb   | URI Pattern                                 | Controller#Action      |
+|--------|---------------------------------------------|------------------------|
+| POST   | `/abilities/:agentId`                       | `abilities#create`     |
+| PATCH  | `/abilities/:agentId/:abilityId`            | `abilities#update`     |
+| DELETE | `/abilities/:agentId/:abilityId`            | `abilities#delete`     |
