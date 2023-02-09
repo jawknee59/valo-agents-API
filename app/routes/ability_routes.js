@@ -66,12 +66,33 @@ router.patch('/abilities/:agentId/:abilityId', requireToken, (req, res, next) =>
             // save the agent
             return agent.save()
         })
+        // send a status
         .then(() => res.sendStatus(204))
         .catch(next)
 })
 
 // DELETE -> destroy an ability
 // DELETE /abilities/:agentId/:abilityId
+router.delete('/abilities/:agentId/:abilityId', requireToken, (req, res, next) => {
+    const agentId = req.params.agentId
+    const abilityId = req.params.abilityId
+
+    // find the agent
+    Agent.findById(agentId)
+        .then(handle404)
+        .then(agent => {
+            // single out the ability to be updated
+            const theAbility = agent.abilities.id(abilityId)
+            // make sure the user is the agent's owner
+            requireOwnership(req, agent)
+            theAbility.remove()
+            // return the saved agent
+            return agent.save()
+        })
+        // send a status
+        .then(() => res.sendStatus(204))
+        .catch(next)
+})
 
 
 // export router
