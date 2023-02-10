@@ -29,7 +29,7 @@ const router = express.Router()
 
 // INDEX
 // GET /agents
-router.get('/agents', requireToken, (req, res, next) => {
+router.get('/agents', (req, res, next) => {
 	Agent.find()
 		.populate('owner')
 		.then((agents) => {
@@ -46,7 +46,7 @@ router.get('/agents', requireToken, (req, res, next) => {
 
 // SHOW
 // GET /agents/5a7db6c74d55bc51bdf39793
-router.get('/agents/:id', requireToken, (req, res, next) => {
+router.get('/agents/:id', (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
 	Agent.findById(req.params.id)
 		.populate('owner')

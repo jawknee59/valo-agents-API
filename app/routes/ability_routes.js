@@ -97,3 +97,4 @@ router.delete('/abilities/:agentId/:abilityId', requireToken, (req, res, next) =
 
 // export router
 module.exports = router
+
